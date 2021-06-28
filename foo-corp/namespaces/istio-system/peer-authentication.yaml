@@ -32,15 +32,11 @@ spec:
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
+apiVersion: "security.istio.io/v1beta1"
+kind: "PeerAuthentication"
 metadata:
-  annotations:
-    meshsecurityinsights.googleapis.com/generated: "1561996419000000000"
-  name: default
-  namespace: istio-system
+  name: "default"
+  namespace: "istio-system"
 spec:
-  host: '*.local'
-  trafficPolicy:
-    tls:
-      mode: ISTIO_MUTUAL
+  mtls:
+    mode: STRICT
